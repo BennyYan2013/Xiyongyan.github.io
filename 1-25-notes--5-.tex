@@ -1,0 +1,442 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\newcommand{\valpha}{\boldsymbol{\alpha}}
+\newcommand{\vbeta}{\boldsymbol{\beta}}
+\newcommand{\vgamma}{\boldsymbol{\gamma}}
+\newcommand{\vdelta}{\boldsymbol{\delta}}
+\newcommand{\vepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\vvarepsilon}{\boldsymbol{\varepsilon}}
+\newcommand{\vzeta}{\boldsymbol{\zeta}}
+\newcommand{\veta}{\boldsymbol{\eta}}
+\newcommand{\vtheta}{\boldsymbol{\theta}}
+\newcommand{\viota}{\boldsymbol{\iota}}
+\newcommand{\vkappa}{\boldsymbol{\kappa}}
+\newcommand{\vlambda}{\boldsymbol{\lambda}}
+\newcommand{\vmu}{\boldsymbol{\mu}}
+\newcommand{\vnu}{\boldsymbol{\nu}}
+\newcommand{\vxi}{\boldsymbol{\xi}}
+\newcommand{\vpi}{\boldsymbol{\pi}}
+\newcommand{\vrho}{\boldsymbol{\rho}}
+\newcommand{\vsigma}{\boldsymbol{\sigma}}
+\newcommand{\vtau}{\boldsymbol{\tau}}
+\newcommand{\vchi}{\boldsymbol{\chi}}
+\newcommand{\vpsi}{\boldsymbol{\psi}}
+\newcommand{\vomega}{\boldsymbol{\omega}}
+\newcommand{\vGamma}{\boldsymbol{\Gamma}}
+\newcommand{\vDelta}{\boldsymbol{\Delta}}
+\newcommand{\vTheta}{\boldsymbol{\Theta}}
+\newcommand{\vLambda}{\boldsymbol{\Lambda}}
+\newcommand{\vXi}{\boldsymbol{\Xi}}
+\newcommand{\vPi}{\boldsymbol{\Pi}}
+\newcommand{\vSigma}{\boldsymbol{\Sigma}}
+\newcommand{\vPsi}{\boldsymbol{\Psi}}
+\newcommand{\vOmega}{\boldsymbol{\Omega}}
+
+\newcommand{\vA}{\boldsymbol{A}}
+\newcommand{\vB}{\boldsymbol{B}}
+\newcommand{\vC}{\boldsymbol{C}}
+\newcommand{\vD}{\boldsymbol{D}}
+\newcommand{\vE}{\boldsymbol{E}}
+\newcommand{\vF}{\boldsymbol{F}}
+\newcommand{\vG}{\boldsymbol{G}}
+\newcommand{\vH}{\boldsymbol{H}}
+\newcommand{\vI}{\boldsymbol{I}}
+\newcommand{\vJ}{\boldsymbol{J}}
+\newcommand{\vK}{\boldsymbol{K}}
+\newcommand{\vL}{\boldsymbol{L}}
+\newcommand{\vM}{\boldsymbol{M}}
+\newcommand{\vN}{\boldsymbol{N}}
+\newcommand{\vO}{\boldsymbol{O}}
+\newcommand{\vP}{\boldsymbol{P}}
+\newcommand{\vQ}{\boldsymbol{Q}}
+\newcommand{\vR}{\boldsymbol{R}}
+\newcommand{\vS}{\boldsymbol{S}}
+\newcommand{\vT}{\boldsymbol{T}}
+\newcommand{\vU}{\boldsymbol{U}}
+\newcommand{\vV}{\boldsymbol{V}}
+\newcommand{\vW}{\boldsymbol{W}}
+\newcommand{\vX}{\boldsymbol{X}}
+\newcommand{\vY}{\boldsymbol{Y}}
+\newcommand{\vZ}{\boldsymbol{Z}}
+\newcommand{\va}{\boldsymbol{a}}
+\newcommand{\vb}{\boldsymbol{b}}
+\newcommand{\vc}{\boldsymbol{c}}
+\newcommand{\vd}{\boldsymbol{d}}
+\newcommand{\ve}{\boldsymbol{e}}
+\newcommand{\vf}{\boldsymbol{f}}
+\newcommand{\vg}{\boldsymbol{g}}
+\newcommand{\vh}{\boldsymbol{h}}
+\newcommand{\vi}{\boldsymbol{i}}
+\newcommand{\vj}{\boldsymbol{j}}
+\newcommand{\vk}{\boldsymbol{k}}
+\newcommand{\vl}{\boldsymbol{l}}
+\newcommand{\vm}{\boldsymbol{m}}
+\newcommand{\vn}{\boldsymbol{n}}
+\newcommand{\vo}{\boldsymbol{o}}
+\newcommand{\vp}{\boldsymbol{p}}
+\newcommand{\vq}{\boldsymbol{q}}
+\newcommand{\vr}{\boldsymbol{r}}
+\newcommand{\vs}{\boldsymbol{s}}
+\newcommand{\vt}{\boldsymbol{t}}
+\newcommand{\vu}{\boldsymbol{u}}
+\newcommand{\vv}{\boldsymbol{v}}
+\newcommand{\vw}{\boldsymbol{w}}
+\newcommand{\vx}{\boldsymbol{x}}
+\newcommand{\vy}{\boldsymbol{y}}
+\newcommand{\vz}{\boldsymbol{z}}
+
+\newcommand{\malpha}{\mathbf{\alpha}}
+\newcommand{\mbeta}{\mathbf{\beta}}
+\newcommand{\mgamma}{\mathbf{\gamma}}
+\newcommand{\mdelta}{\mathbf{\delta}}
+\newcommand{\mepsilon}{\mathbf{\epsilon}}
+\newcommand{\mvarepsilon}{\mathbf{\varepsilon}}
+\newcommand{\mzeta}{\mathbf{\zeta}}
+\newcommand{\meta}{\mathbf{\eta}}
+\newcommand{\mtheta}{\mathbf{\theta}}
+\newcommand{\miota}{\mathbf{\iota}}
+\newcommand{\mkappa}{\mathbf{\kappa}}
+\newcommand{\mlambda}{\mathbf{\lambda}}
+\newcommand{\mmu}{\mathbf{\mu}}
+\newcommand{\mnu}{\mathbf{\nu}}
+\newcommand{\mxi}{\mathbf{\xi}}
+\newcommand{\mpi}{\mathbf{\pi}}
+\newcommand{\mrho}{\mathbf{\rho}}
+\newcommand{\msigma}{\mathbf{\sigma}}
+\newcommand{\mtau}{\mathbf{\tau}}
+\newcommand{\mchi}{\mathbf{\chi}}
+\newcommand{\mpsi}{\mathbf{\psi}}
+\newcommand{\momega}{\mathbf{\omega}}
+\newcommand{\mGamma}{\mathbf{\Gamma}}
+\newcommand{\mDelta}{\mathbf{\Delta}}
+\newcommand{\mTheta}{\mathbf{\Theta}}
+\newcommand{\mLambda}{\mathbf{\Lambda}}
+\newcommand{\mXi}{\mathbf{\Xi}}
+\newcommand{\mPi}{\mathbf{\Pi}}
+\newcommand{\mSigma}{\mathbf{\Sigma}}
+\newcommand{\mPsi}{\mathbf{\Psi}}
+\newcommand{\mOmega}{\mathbf{\Omega}}
+
+\newcommand{\mA}{\mathbf{A}}
+\newcommand{\mB}{\mathbf{B}}
+\newcommand{\mC}{\mathbf{C}}
+\newcommand{\mD}{\mathbf{D}}
+\newcommand{\mE}{\mathbf{E}}
+\newcommand{\mF}{\mathbf{F}}
+\newcommand{\mG}{\mathbf{G}}
+\newcommand{\mH}{\mathbf{H}}
+\newcommand{\mI}{\mathbf{I}}
+\newcommand{\mJ}{\mathbf{J}}
+\newcommand{\mK}{\mathbf{K}}
+\newcommand{\mL}{\mathbf{L}}
+\newcommand{\mM}{\mathbf{M}}
+\newcommand{\mN}{\mathbf{N}}
+\newcommand{\mO}{\mathbf{O}}
+\newcommand{\mP}{\mathbf{P}}
+\newcommand{\mQ}{\mathbf{Q}}
+\newcommand{\mR}{\mathbf{R}}
+\newcommand{\mS}{\mathbf{S}}
+\newcommand{\mT}{\mathbf{T}}
+\newcommand{\mU}{\mathbf{U}}
+\newcommand{\mV}{\mathbf{V}}
+\newcommand{\mW}{\mathbf{W}}
+\newcommand{\mX}{\mathbf{X}}
+\newcommand{\mY}{\mathbf{Y}}
+\newcommand{\mZ}{\mathbf{Z}}
+
+\usepackage{mathbbol}
+\newcommand{\ind}[1]{\mathbb{1}[#1]}
+
+\usepackage{amsmath,amsthm,amssymb,amsfonts,mathtools,commath}
+
+\begin{itemize}
+\item
+  random variable \(X\), \(Y\)
+\item
+  observed variable \(x\), \(z\)
+\item
+  random vector \(\boldsymbol{X}\), \(\boldsymbol{Y}\)
+\item
+  observed vector, vector of parameters \(\boldsymbol{x}\),
+  \(\boldsymbol{\mu}\), \(\boldsymbol{\beta}\)
+\item
+  matrix (random or not) \(\mathbf{X}\), \(\mathbf{A}\)
+\item
+  matrix of parameters \(\mathbf{\Sigma}\)
+\end{itemize}
+
+\(\mathbb{1}[X>0]\)
+
+install.packages(``tinytex'') tinytex::install\_tinytex() \#Introduction
+
+\hypertarget{what-is-machine-learning}{%
+\subsection{What is machine learning?}\label{what-is-machine-learning}}
+
+The main focus of this course will be to examine statistical learning
+theory; mainly the mathematical theory behind machine learning. Roughly
+speaking, we shall examine this question: how much data is needed in
+order to achieve a certain preduction accuracy? In order to answet this
+question, we shall determine teh desirable accurarcy and use the theory
+developed to identify how much data is needed to obatin a training and
+test dataset.
+
+Both statistics and machine learning are obviously related to each
+other. Both rely upon using datat to make decisions and inferences.
+However, the techiques used for estiamtion are what sets them apart.
+Note that statistics is a discipline that was developed in the 1920's
+which is much earlier than machine learning and maximum likelihood
+estimation (MLE) is the primary tool used for statistical inference.
+However, in order to consider MLE's, we are required to know the
+probability density function (PDF) for which the data is obtaed from. In
+otherwords, when considering the likelihood function, we must know the
+PDF \(f(x)\) up to some parameter value \(\theta\). For instance, in the
+classical case from Math 502 where we consider an esimate for \(\theta\)
+for the data set \(X_1, X_2,..., X_n\) which are iid \(N(\theta, 1)\)
+for \(\theta \in \mathbb{R}\), we are able to maximize the assoicated
+likelihood function to find an estimator for \(\theta\) because the
+density is known, which gives indication on how the data is generated.
+
+The example above and implementing maximum likelihood estimation in
+general is an example of modeling our data using a known model.More
+recently however, new data types are used in field such as social
+sciecnes and the medical field, such as demographics, which become more
+challenging to model since we don't understand the data generating
+process. Therefore, we need to be able to consider distribution free
+methods, which machine learning will primarily concern. Such an example
+of this is the image classifcation problem in which we have some input
+\(X\) and we will determine the value of the output \(Y\) which gives
+\(X\) a label by considering a ``blackbox'' algorithim.
+
+Additinally, statistics concerns more finite smaple rather than
+asymptotic samples, model specific, and can be computationally heavy.
+However, machine learning will adapt more probabilistic modeling.
+Primarily in our course, we shall discuss statistical learnint
+techniques, which is their intersection.
+
+\hypertarget{supervised-learning}{%
+\subsection{Supervised Learning}\label{supervised-learning}}
+
+Consider the data set \(D=\{ (X_i, Y_i), i=1,...,n\}\) where \(X_i\) is
+the feature data point (input) and \(Y_i\) is the label responses
+(output). The main goal is to use \(D\) to develop a function
+\(h: X\to Y\) where \(X\) is the input space and \(Y\) is the label
+space. Additionally, we'll also consdier the case when given \(h_1\) and
+\(h_2\), which function is better? To answet he latter, we shall dine a
+loss function \(\ell : Y \times Y \to \mathbb{R}\) where usually
+\(\ell(\hat{y}, y) \geq 0\) (\hat{y} is the predicted value of \(h(x)\)
+and \(y\) is the true label). Thus the loss function of a model \(h\) on
+space \((X,Y)\) is \(\ell (h (x),y)\) which is a random quantity since
+\(x\) and \(y\) can be drawn from a population of a random distribution.
+Ultimiatley, we wish to find a model \(h\) where
+\(h=\text{argmin}_h L(h)\) where \((X,Y) \sim p\) where \(p\) is some
+distribution and \(L(h)= E[\ell(h(x),y)]\) is what we call a risk
+function . One common example for \(\ell\) is the swuared error loss
+\(\ell (\hat{y},y) = (\hat{y}-y)^2\) in repression analysis. In
+classifcation, we can use the 0-1 loss
+\(\ell (\hat{y},y)= \mathbb{1}[\hat{y} \neq y]\).
+
+In practice, we don't have have a way to optimize over arbitrarty
+function. So, we must constrain the set of functions instead. Let's call
+this set \(\mathcal{H}\), which is known as the hypothsis family or
+class. Oftern, each \(h \in \mathcal{H}\) can be paraneterized by a
+\(\theta\) so each \(h\) is uniquely identified with a parameter
+\(\theta\). In otherwords, we can view \(\ell\) as being a function of
+\(x,y,\) and \(\theta\) rather than of \(h(x)\) and \(y\).
+
+Given \(h\) and \(\mathcal{H}\), we degine the excess risk of \(h\) with
+respect to \(\mathcal{H}\) as
+\[\mathcal{E}_\mathcal{H} = L(h)- \inf_{h \in \mathcal{H}} L(h).\]
+Excess risk measures how much worse we do compatred to the optimal
+\(h\). Note that the \(\inf_{h \in \mathcal{H}} L(h)\) is the best
+performance for risk over all \(h \in \mathcal{H}\). In general, we can
+define \(\mathcal{E}\) without \(\mathcal{H}\) as
+\[\mathcal{E} = L(h)-\inf_{h(\cdot)}  L(h)\] for any \(h\). Now
+\(\mathcal{E}\) measures how much worse we do with a given \(h\)
+compared to the optimal and \(\inf_{h(\cdot)} L(h)\) the best
+performance for risk over all arbitrary \(h\).
+
+\hypertarget{empirical-risk-minimization}{%
+\subsection{Empirical Risk
+Minimization}\label{empirical-risk-minimization}}
+
+In practice, we can't minimize \(L(h)\) since we don't know the
+distirbution \(p\) to compute \(E(\ell(x,y,h))\) under \((X,Y) \sim p\).
+Instead, we have training data \$D=\{(X\_i, Y\_i)\} \$ which are iid
+copies of \((X,Y)\sim p\) and can estimate \(L(h)\). We define empirical
+risk as
+\[\hat{L}_n (h _\theta) = \frac{1}{n} \sum_{i=1}^n \ell(x_i, y_i , \theta)\]
+which is the sample mean of the loss function evaluated at each data
+point in the training data. ERM is the method of finding \(h_\theta\) to
+minimze \(\hat{L}_n (h _ \theta)\) which we'll denote as
+\(\hat{\theta} = \text{argmin}_{\theta \in \Theta} \hat{L_n} (h_\theta)\)
+for some parameter set \(\Theta\). Since \((X_i, Y_i)\) and \((X,Y)\)
+are iid, it is obvious that \(E[\hat{L}_n (h)]=L(h)\).
+
+However, is this a good esitmator? What guarantee do we have on the risk
+for \(\hat{\theta}\)? We hope that
+\(\min_\theta \hat{L}_n(h_\theta) \approx \min L(h_{\hat{\theta}})\). We
+can show this by showing that excess risk is bounded by a term that
+eventually goes to zero as \(n \to \infty\).
+
+\hypertarget{binary-classifications}{%
+\subsection{Binary Classifications}\label{binary-classifications}}
+
+Let \((X_i, Y_i)\) be for \(i=1,...,n\) be independent copies of
+\((X,Y)\) where \((X,Y) \in X \in \{0,1\}\). Under 0-1 loss, risk is
+\[L(h)= E[ \mathbb{1}[h(X) \neq Y]]=P(h(X) \neq Y)\] which is the
+probability using class \(h\) we make a misclassification.
+
+\textbf{\underline{Remarks:}}
+
+\begin{enumerate} 
+
+\item Given $x$, $Y|X=x$ has a Bernoulli distribution with probability $\eta (x)=P(Y=1|X=x)$; $\eta(x)$ is known as the regression function. 
+
+\item If $\eta (x) = \frac{1}{2}$ then $Y$ is likely 1 as 0. This also corresponds to the boundry of the input space. 
+
+\item If $\eta(x) \approx 1$ then $Y$ is very likely 1 where as if $\eta(x) \approx 0$, $Y$ is very likely 0. 
+
+\item The value of $\eta(x)$ conains information about the distribution of $Y$. 
+
+\item Define the Bayes optimal rule as $h*(x)=\mathbb{1}[\eta(x)\geq \frac{1}{2}]$. Actually, we can prove that $h*= \text{argmin}_{h(\cdot)} L(h)$, i.e. $L(h*) = \inf_{h(\cdot )} L(h)$ known as the bays risk. We cannot compute Bays rule in practice becasue we don't know the underling distribution $(X,Y)$ which is needed to compute $\eta$.  
+
+But, we can compute $\hat{h} = \text{argmin}_{h \in S} \hat{L_n}(h)$ where $\hat{L_n} (h) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}[h(x_i) \neq y_i]$ and $S$ is a hypothesis class to by definied. If $S$ can be anything, the just let $$\hat{h} (x)= \begin{cases} y_i & x=x_i, (x_i, y_i)\in D \\ 0 & \text{Otherwise} \end{cases}.$$
+
+Then $\hat{L_n} (\hat{h}) =0$ but $L(\hat{h}) \neq 0$ so a constrained hypotehsis class is needed. When $\hat{h}$ is constructored from teh data, then $L(\hat{h})= E_{(X,Y)}[ \ell( \hat{h}(X), Y)]$ is random due to $\hat{h}$ is random while $X$ and $Y$ are no longer random. However, when conditioned to the data $D$, $L(\hat{h})=E[ \ell (\hat{h(X)},Y)|D ]$, $\hat{h}$ is fixed. 
+
+\item How to restrict the hypothesis class $\mathcal{H}$? We have two schools of throught which examine this question. 
+
+Generative School: Restrict set of candidate distribution function; e.g. LDA, QDA, $X|Y=k \sim N(\boldsymbol{\mu}, \boldsymbol{\Sigma})$. 
+
+Discriminative School: Resitriction on $\mathcal{H}$ directly not on the distribution; SVM, linear classifer, kernel, ridge regression ($h(\boldsymbol{x}) = \boldsymbol{x}^T \boldsymbol{\beta}+ \boldsymbol{b}$ such that $||\boldsymbol{\beta}||^2 \leq t^2). 
+
+\end{enumerate}
+
+\hypertarget{estimation-vs-approximation}{%
+\subsection{Estimation VS
+Approximation}\label{estimation-vs-approximation}}
+
+Given a hypothesis class, we can decompose \(\mathcal{E}(\hat{h_n})\) as
+\[\mathcal{E}(\hat{h_n}) = L(\hat{h_n})- L(h*)=L(\hat{h_n})-\inf_{h \in \mathcal{H}} L(h) + \inf_{h \in \mathcal{H}} L(h) -L(h*).\]
+We call \(EE=L(\hat{h_n})-\inf_{h \in \mathcal{H}} L(h)\) the estimation
+error and \(AE=\inf_{h \in \mathcal{H}} L(h) -L(h*)\) the approximation
+error. Note that excess risk contains estimation error because we use
+finite samples in our analysis. Additionally, we saw that if
+\(\mathcal{H}\) is too large then the estimimation error will also be
+larte. The size of \(\mathcal{H}\) contributes to the approximation
+error since if \(\mathcal{H}\) is too small, then it is hard to find
+\(h \in \mathcal{H}\) with \(L(h) \approx L(h*)\). However, if
+\(\mathcal{H}\) is large enouigh, then there will be no approximation
+error. Our main focus in this course will be to examine the estimation
+error since when \(h\) is fixed, approximation error is a constant and
+estimation error will vary.
+
+The trade-off in both \(AE\) and \(EE\) is to let \(\mathcal{H}\) grow
+with \(n\). For now, let's fix \(\mathcal{H}\) and study the
+"\(n\)-estimate relationship. Some tools for approaching such analysis
+are concentration inequaltites, Hoeffding's Inequatities, and
+Bernstein's Inequalities. Analyizing these allow us to bound
+\(|\hat{L_n}(h)-L(h)|\) with respect to \(h\) and \(p\). More generally,
+we'll examine how close \(\frac{1}{n} \sum_{i=1}^n X_i\) is to
+\(E(X_i)\).
+
+The common idea in this analysis is to recall that
+\(\hat{h}_n = \text{argmin}_{h \in \mathcal{H}} \hat{L_n}(h)\) which
+implies that \(\hat{L_n}(\hat{h_n}) \leq \hat{L_n}(h)\) for all
+\(h \in \mathcal{H}\). We define
+\(\overline{h} = \text{argmin}_{h \in \mathcal{H}} L(h)\). Note that we
+can estimate \(\overline{h}\) with \(\hat{h}\) and that
+\(\hat{L_n}(\hat{h_n}) \leq \hat{L_n} ( \overline{h})\). So
+\[EE=L(\hat{h_n})-L(\overline{h})=L(\hat{h_n})-\inf_{h \in \mathcal{H}} L(h) L(h) = L(\hat{h_n})-L(\overline{h}).\]
+
+However, how can we bound this quantity? With algebric manipulations and
+the use of the Triangle Inequality, we can obtain that \begin{align*}
+L(\hat{h_n})-L(\overline{h}) &= \hat{L_n}(\hat{h_n}) - \hat{L_n}(\overline{h}) + L(\hat{h_n})-\hat{L_n}(\hat{h_n})+L(\overline{h})-L(\overline{h})\\
+&\leq 0 + |L(\hat{h_n}-\hat{L_n}(\hat{h_n}))| + |\hat{L_n}(\overline{h})-L(\overline{h})|\\
+&= |L(\hat{h_n}-\hat{L_n}(\hat{h_n}))| + |\hat{L_n}(\overline{h})-L(\overline{h})|.
+\end{align*}
+
+Recall that
+\(\hat{L_n}(\hat{h_n}) = \frac{1}{n} \sum_{i=1}^n \ell(\hat{h}_n(x_i)y_i)\)
+and \(\hat{h}\) is random and depends upon the data set \(D\). So, the
+quantity on the left is hard to bound because \(\hat{L_n}(\hat{h_n})\)
+is an average but not of iid random variables. But, the quanitity of the
+right is easy to bound since \(\overline{h}\) is fixed and the estimator
+\(\hat{L_n}(\overline{h})\) is a sample mean of iid random variables.
+However, since they are of similar form, we can overcome this difficult
+by ``supping-out'' and obtain that
+\(EE \leq 2 \sup_{h \in \mathcal{H}} |L(h)- \hat{L_n}(h)|\) which is a
+uniform bound for both quantities. Note that the suprememum is small if
+\(\mathcal{H}\) is small but \(\mathcal{H}\) should be large enogh for
+the sake of approximation error.
+
+\end{document}
